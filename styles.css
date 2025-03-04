@@ -25,20 +25,50 @@ body {
 
 h1{
     margin: 2rem 0;
+    font-size: 10rem;
 }
 
 h2{
     margin: 2rem 0;
+    font-size: 3rem;
 }
 
 form{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 40%;   
+}
+
+input[type="file"] {
+    width: 100%; 
+    max-width: 900px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #381b0b;
+}
+
+label{
+    font-size:2rem;
 }
 
 form #submitButton{
     margin-top: 2rem;
+    font-weight: bold;
+    font-size:2rem;
+    background-color: #f2e3ca;
+    border: 5px solid #f2e3ca; 
+    color: #141414;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background 0.3s, border-color 0.3s; 
+}
+
+form #submitButton:hover {
+    background-color: #381b0b; 
+    border-color: #907254;
+    color: #eaedf6;
 }
 
 .allcomment-container{
@@ -48,33 +78,43 @@ form #submitButton{
 }
 
 .comment-container{
+    font-family: "Zain", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+    word-wrap: break-word; 
+    max-width: 100%;
+    text-align: left;
+
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    flex-wrap: wrap;
     margin-bottom: 2rem;
     background-color: #724220;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.comment-container img{
-    width: 100px; 
-    height: 100px; 
-    object-fit: cover;
-    border-radius: 50%;
+.comment-container img {
+    max-width: 100%;
+    margin-top: 10px;  /* Espacio entre el texto y la imagen */
+    margin-bottom: 10px;  /* Añade espacio debajo de la imagen */
 }
-.comment-container > p{
-    background-color: #c7b496;
-    color: #381b0b;
-    padding: 1rem;
-    flex: 1;
-}
+
 
 .author-container {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    padding: 1rem;
+    padding: 1rem;   
+}
+
+.author-container img{
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .author-information{
@@ -82,9 +122,63 @@ form #submitButton{
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem
+    gap: 2rem;
 }
 
-/* Poner hoover a botones */
+.author-information p{
+    font-size:2rem;
+}
 
+
+.divTextImg {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; 
+}
+
+.textImg-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    
+    background-color: #c7b496;
+    color: #381b0b;
+    padding: 1rem;
+    flex: 1;
+    width: 100%;  
+    overflow: hidden; 
+
+}
+
+.textImg-container > p{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size:3rem; 
+    text-align: left;
+}
+
+.textImg-container img {
+    max-width: 100%;    /* Asegura que la imagen no se salga del contenedor */
+    height: auto;       /* Mantiene la relación de aspecto de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+    margin-top: 10px;   /* Añade un pequeño espacio entre el texto y la imagen */
+    margin-bottom: 10px;
+    max-height: 300px;
+}
+
+.delete-btn {
+    margin-top: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #d9534f;
+}
 

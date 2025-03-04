@@ -1,11 +1,11 @@
 const authorInput = document.querySelector('#author');
 const commentInput = document.querySelector('#comment');
 const submitButton = document.querySelector('#submitButton');
+const userImgInput = document.querySelector('#user-imgs');
 
 const   commentContainer = document.querySelector('.allcomment-container')
 
-// // CLASE
-
+// CLASE
 // const uploadForm = document.querySelector("#user-url")
 
 // const handleUploadForm = (e) => {
@@ -23,8 +23,6 @@ const   commentContainer = document.querySelector('.allcomment-container')
 // }
 
 // uploadForm.addEventListener('submit', (e) => handleUploadForm(e))
-
-
 
 //<div class="comment-container">
     // <div class="author-container">
@@ -61,15 +59,33 @@ const addComment = (event) => {
     userName.textContent = authorValue;
 
     const timeStamp = document.createElement('p');
-    timeStamp.textContent = timeStampValue;
+    timeStamp.textContent = timeStampValue.toLocaleString();
+
+    const divTextImg = document.createElement('div');
+    divTextImg.classList.add('textImg-container');
 
     const comment = document.createElement('p');
     comment.textContent = commentValue;
 
-    divComment.append(divAuthorContainer, comment);
-    divAuthorContainer.append(avatar, divAuthorInformation);
-    divAuthorInformation.append(userName, timeStamp );
+    const imgUrl = userImgInput.files[0];
+    const imageURL = URL.createObjectURL(imgUrl);
+    const commentImg = document.createElement('img');
+    commentImg.src = imageURL;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Eliminar";
+    deleteButton.classList.add('delete-btn');
+
+    deleteButton.addEventListener('click', () => {
+        divComment.remove();
+    });
+
     commentContainer.append(divComment);
+    divComment.append(divAuthorContainer, divTextImg);
+    divTextImg.append(comment, commentImg);
+    divAuthorContainer.append(avatar, divAuthorInformation);
+    divAuthorInformation.append(userName, timeStamp, deleteButton);
+    
 }
 
 submitButton.addEventListener('click', addComment);
