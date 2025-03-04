@@ -36,6 +36,10 @@ form{
     gap: 0.5rem;
 }
 
+form #submitButton{
+    margin-top: 2rem;
+}
+
 .allcomment-container{
     display: flex;
     flex-direction: column;
@@ -80,6 +84,6 @@ form{
     gap: 2rem
 }
 
-
+/* Poner hoover a botones */
 
 

@@ -4,6 +4,28 @@ const submitButton = document.querySelector('#submitButton');
 
 const   commentContainer = document.querySelector('.allcomment-container')
 
+// // CLASE
+
+// const uploadForm = document.querySelector("#user-url")
+
+// const handleUploadForm = (e) => {
+//     e.preventDefault();
+//     const imageUrl = document.querySelector('#upload-form input')
+//     addCard(imageUrl)
+// }
+// const addImg = (url) => {
+//     const container = document.querySelector(".container)
+//     const cards = document.querySelector(".card")
+//     while(container.firstChild){
+//         container.firstChild.remove
+//     }
+//     container.insertAdjacentElement('beforeend',  )
+// }
+
+// uploadForm.addEventListener('submit', (e) => handleUploadForm(e))
+
+
+
 //<div class="comment-container">
     // <div class="author-container">
         // <img src="imgs/Profile-picture-example.jpg" alt="profile picture test">
