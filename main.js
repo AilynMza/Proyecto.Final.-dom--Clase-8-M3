@@ -34,14 +34,21 @@ const   commentContainer = document.querySelector('.allcomment-container')
     // </div>
     // <p>texto</p>
 // </div>
-
 const addComment = (event) => {
     event.preventDefault();
+
     const authorValue = authorInput.value;
     const commentValue = commentInput.value;
     const timeStampValue = new Date();
+    const imgUrl = userImgInput.files[0];
+
     authorInput.value = '';
     commentInput.value = '';
+
+    if (!commentValue && !imgUrl) {
+        alert("¡Error! No hay nada que publicar. Revise nuevamente.");
+        return;
+    }
 
     const divComment = document.createElement('div');
     divComment.classList.add('comment-container');
@@ -67,14 +74,16 @@ const addComment = (event) => {
     const comment = document.createElement('p');
     comment.textContent = commentValue;
 
-    const imgUrl = userImgInput.files[0];
-    const imageURL = URL.createObjectURL(imgUrl);
-    const commentImg = document.createElement('img');
-    commentImg.src = imageURL;
+    let commentImg;
+    if (imgUrl) {
+        const imageURL = URL.createObjectURL(imgUrl);
+        commentImg = document.createElement('img');
+        commentImg.src = imageURL;
+    }
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Eliminar";
     deleteButton.classList.add('delete-btn');
+    deleteButton.textContent = 'Eliminar';
 
     deleteButton.addEventListener('click', () => {
         divComment.remove();
@@ -82,13 +91,12 @@ const addComment = (event) => {
 
     commentContainer.append(divComment);
     divComment.append(divAuthorContainer, divTextImg);
-    divTextImg.append(comment, commentImg);
+    divTextImg.append(comment);
+    if (commentImg) {
+        divTextImg.append(commentImg); 
+    }
     divAuthorContainer.append(avatar, divAuthorInformation);
     divAuthorInformation.append(userName, timeStamp, deleteButton);
-    
 }
 
 submitButton.addEventListener('click', addComment);
-
-
-
